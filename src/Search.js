@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { queryAllByAttribute } from "@testing-library/dom";
 
 export default function Search() {
   const [city, setCity] = useState("");
