@@ -1,14 +1,66 @@
 import React from "react";
-import axios from "axios";
-import { queryAllByAttribute } from "@testing-library/dom";
+import "./Weather.css";
+import Search from "./Search";
 
-export default function Weather(props) {
-  function handleSubmit(response) {
-    alert(
-      `The temperature in ${response.data.name} is ${response.data.main.temp}`
-    );
-  }
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=c1e2ce826268a3eec47d68f632fb9a68&units=metric`;
+export default function Weather() {
+  let weatherData = {
+    city: "New York",
+    date: "Sunday 16:02",
+    temperature: 19,
+    description: "Cloudy",
+    imgUrl: "http://openweathermap.org/img/wn/03d@2x.png",
+    humidity: 50,
+    wind: 6,
+  };
+  return (
+    <div className="App">
+      <div className="weather-app">
+        <Search />
+        <div className="overview">
+          <h1>{weatherData.city}</h1>
+          <ul>
+            <li>
+              Last updated:
+              <span>{weatherData.date}</span>
+            </li>
+            <li>{weatherData.description}</li>
+          </ul>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <div className="clearfix weather-temperature">
+              <img
+                src={weatherData.imgUrl}
+                alt={weatherData.description}
+                className="float-left"
+              />
+              <div className="float-left">
+                <strong>{weatherData.temperature}</strong>
+                <span className="unit">
+                  <a href="/" className="active">
+                    °C
+                  </a>{" "}
+                  |{" "}
+                  <a href="/" className="fahrenheit">
+                    °F
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
 
-  axios.get(apiUrl).then(handleSubmit);
+          <div className="col-6">
+            <ul>
+              <li>
+                Humidity: <span id="humidity">{weatherData.humidity}</span>%
+              </li>
+              <li>
+                Wind: <span id="wind">{weatherData.wind}</span> km/h
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
