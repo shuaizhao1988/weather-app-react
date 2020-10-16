@@ -5,7 +5,7 @@ import Search from "./Search";
 export default function Weather() {
   let weatherData = {
     city: "New York",
-    date: "Sunday 16:02",
+    date: "Sunday 16:00",
     temperature: 19,
     description: "Cloudy",
     imgUrl: "http://openweathermap.org/img/wn/03d@2x.png",
