@@ -46,11 +46,14 @@ li::first-letter {
   text-transform: capitalize;
 }
 
+#weather-app {
+  padding: 50px;
+}
 .weather-app {
-  padding: 150px;
+  padding: 100px;
   border: 1px solid #dadde1;
   border-radius: 6px;
-  margin: 40px;
+  margin: 20px;
   background: lightblue;
 }
 
